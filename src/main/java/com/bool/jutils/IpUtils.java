@@ -41,6 +41,8 @@ public class IpUtils {
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {  
             ip = request.getHeader("HTTP_X_FORWARDED_FOR"); 
         }  
+        
+        System.out.println("++++++++++++++++ip:"+ip);
         //请求可能经过了代理，可能会出现多个IP段，如：121.34.144.6, 117.25.139.54
         //前面这段是真实用户IP，后面则是代理，可能有多个：真实IP,代理IP,代理2IP
         if(!StringUtils.isEmpty(ip) && ip.indexOf(",")!=-1){

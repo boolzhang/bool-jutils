@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.bool</groupId>
 	<artifactId>bool-jutils</artifactId>
-	<version>1.1</version>
+	<version>1.4</version>
 	<name>bool-jutils</name>
 	<url>http://5f66.com</url>
 
@@ -26,6 +26,18 @@
 			<artifactId>spring-web</artifactId>
 			<version>4.2.5.RELEASE</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.4</version>
+		</dependency>
+		
+		<dependency>
+    <groupId>dom4j</groupId>
+    <artifactId>dom4j</artifactId>
+    <version>1.6.1</version>
+</dependency>
 
 	</dependencies>
 
@@ -45,5 +57,19 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>releases</name>
+			<url>http://120.78.217.41:8081/repository/maven-releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>Snapshots</id>
+			<name>Snapshots</name>
+			<url>http://120.78.217.41:8081/repository/maven-snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 
 </project>

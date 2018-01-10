@@ -1,6 +1,11 @@
 package com.bool.jutils;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
 
 /**
  * 一些字符的处理，如：将map转换成xml，xml转换成map，从文字中提取中文，判断文字是否全中文
@@ -30,6 +35,18 @@ public class StringUtil {
     	sb.append("</xml>");
     	return sb.toString();
     }
+    
+    public static Map<String, String> xmlString2Map(String xmlString)
+    	    throws Exception
+    	  {
+    	    Element element = DocumentHelper.parseText(xmlString).getRootElement();
+    	    Map params = new HashMap();
+    	    List<Element> elements = element.elements();
+    	    for (Element e : elements) {
+    	      params.put(e.getName(), e.getStringValue());
+    	    }
+    	    return params;
+    	  }
 
     
     /**
