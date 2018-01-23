@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.bool</groupId>
 	<artifactId>bool-jutils</artifactId>
-	<version>1.7</version>
+	<version>1.8</version>
 	<name>bool-jutils</name>
 	<url>http://5f66.com</url>
 
@@ -26,18 +26,24 @@
 			<artifactId>spring-web</artifactId>
 			<version>4.2.5.RELEASE</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 			<version>4.5.4</version>
 		</dependency>
-		
+
 		<dependency>
-    <groupId>dom4j</groupId>
-    <artifactId>dom4j</artifactId>
-    <version>1.6.1</version>
-</dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.44</version>
+		</dependency>
 
 	</dependencies>
 

@@ -1,7 +1,11 @@
-package com.bool.jutils;
+package com.bool.jutils.express;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import com.alibaba.fastjson.JSON;
+import com.bool.jutils.HttpClientUtil;
+import com.bool.jutils.express.entity.ExpressResult;
 
 /**
  * 阿里云市场快递查询工具类
@@ -38,7 +42,7 @@ public class AliExpressUtils {
 	 * 获取所有快递
 	 * @return
 	 */
-	public String getAllExpressType() {
+	public String getAllExpressType() throws Exception{
 		//请求头
 		return HttpClientUtil.getResJson(EXPRESS_TYPE_URL, headers, null);
 	}
@@ -49,12 +53,14 @@ public class AliExpressUtils {
 	 * @param number 快递单号
 	 * @return
 	 */
-	public String queryProcess(String type, String number) {
+	public ExpressResult queryProcess(String type, String number) throws Exception {
 		
 		Map<String,String> params = new HashMap<String,String>();
 		params.put("type", type);
 		params.put("number", number);
-		return HttpClientUtil.getResJson(EXPRESS_PROCESS_URL, headers, params);
+		String json = HttpClientUtil.getResJson(EXPRESS_PROCESS_URL, headers, params);
+		
+		return JSON.parseObject(json, ExpressResult.class);
 	}
 	
 	
@@ -62,11 +68,24 @@ public class AliExpressUtils {
 		
 		AliExpressUtils expressUtil = AliExpressUtils.getInstance("9d77634329ef4eb182620496e76f1990");
 		
-		String types = expressUtil.getAllExpressType();
-		System.out.println(types);
 		
-		String process = expressUtil.queryProcess("auto", "780090657591");
-		System.out.println(process);
+		try {
+			String types = expressUtil.getAllExpressType();
+			System.out.println(types);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+
+		try {
+			ExpressResult process = expressUtil.queryProcess("auto", "780090657591");
+			System.out.println(process);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	
