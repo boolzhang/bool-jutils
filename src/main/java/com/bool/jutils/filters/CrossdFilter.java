@@ -28,6 +28,9 @@ public class CrossdFilter extends OncePerRequestFilter {
 		//增加跨域标识
 		response.addHeader("Access-Control-Allow-Origin", "*");
 		
+		//允许全部头
+		response.addHeader("Access-Control-Allow-Headers", "xxk-token");
+		
 		chain.doFilter(request, response);
 	}
 

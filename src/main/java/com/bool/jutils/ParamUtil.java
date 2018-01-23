@@ -9,13 +9,16 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 
-public class ParamUtil
-{
-  public static String getSignDataIgnoreBlank(Map<String, String> params)
-  {
+public class ParamUtil {
+	
+	
+	
+  public static String getSignDataIgnoreBlank(Map<String, String> params){
     StringBuffer content = new StringBuffer();
 
-    List keys = new ArrayList(params.keySet());
+    List<String> keys = new ArrayList<String>();
+    keys.addAll(params.keySet());
+
     Collections.sort(keys);
 
     for (int i = 0; i < keys.size(); i++) {
@@ -36,8 +39,8 @@ public class ParamUtil
   {
     StringBuffer content = new StringBuffer();
 
-    List keys = new ArrayList(params.keySet());
-    Collections.sort(keys);
+    List<String> keys = new ArrayList<String>();
+    keys.addAll(params.keySet());
 
     for (int i = 0; i < keys.size(); i++) {
       String key = (String)keys.get(i);
