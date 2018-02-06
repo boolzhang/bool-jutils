@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.bool</groupId>
 	<artifactId>bool-jutils</artifactId>
-	<version>1.8</version>
+	<version>1.11</version>
 	<name>bool-jutils</name>
 	<url>http://5f66.com</url>
 
@@ -56,8 +56,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.7.0</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>1.7</source>
+					<target>1.7</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>

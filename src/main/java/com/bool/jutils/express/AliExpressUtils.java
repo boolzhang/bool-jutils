@@ -59,7 +59,7 @@ public class AliExpressUtils {
 		params.put("type", type);
 		params.put("number", number);
 		String json = HttpClientUtil.getResJson(EXPRESS_PROCESS_URL, headers, params);
-		
+		System.out.println(json);
 		return JSON.parseObject(json, ExpressResult.class);
 	}
 	
@@ -69,14 +69,14 @@ public class AliExpressUtils {
 		AliExpressUtils expressUtil = AliExpressUtils.getInstance("9d77634329ef4eb182620496e76f1990");
 		
 		
-		try {
-			String types = expressUtil.getAllExpressType();
-			System.out.println(types);
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
+//		try {
+//			String types = expressUtil.getAllExpressType();
+//			System.out.println(types);
+//		} catch (Exception e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		
 
 		try {
 			ExpressResult process = expressUtil.queryProcess("auto", "780090657591");

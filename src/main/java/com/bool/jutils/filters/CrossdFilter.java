@@ -31,6 +31,9 @@ public class CrossdFilter extends OncePerRequestFilter {
 		//允许全部头
 		response.addHeader("Access-Control-Allow-Headers", "xxk-token");
 		
+		//允许全部头
+		response.addHeader("Access-Control-Allow-Headers", "user-token");
+		
 		chain.doFilter(request, response);
 	}
 

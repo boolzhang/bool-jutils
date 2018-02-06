@@ -47,6 +47,9 @@ public class ExpressResult {
 		
 		private String number;
 		private String type;
+		private String deliverystatus;
+		
+		
 		private List<CatchList> list;
 		public String getNumber() {
 			return number;
@@ -59,6 +62,13 @@ public class ExpressResult {
 		}
 		public void setType(String type) {
 			this.type = type;
+		}
+		
+		public String getDeliverystatus() {
+			return deliverystatus;
+		}
+		public void setDeliverystatus(String deliverystatus) {
+			this.deliverystatus = deliverystatus;
 		}
 		public List<CatchList> getList() {
 			return list;
@@ -90,7 +100,6 @@ public class ExpressResult {
 		public void setStatus(String status) {
 			this.status = status;
 		}
-		
-		
 	}
+	
 }
