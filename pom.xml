@@ -68,12 +68,12 @@
 		<repository>
 			<id>releases</id>
 			<name>releases</name>
-			<url>http://120.78.217.41:8081/repository/maven-releases</url>
+			<url>http://nexus.youximiji.com/repository/maven-releases</url>
 		</repository>
 		<snapshotRepository>
 			<id>Snapshots</id>
 			<name>Snapshots</name>
-			<url>http://120.78.217.41:8081/repository/maven-snapshots</url>
+			<url>http://nexus.youximiji.com/repository/maven-snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 

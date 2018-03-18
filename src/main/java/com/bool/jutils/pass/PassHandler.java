@@ -44,5 +44,14 @@ public class PassHandler {
 		//返回对象
 		return new PassInfo(salt,encryptPassword);
 	}
+	
+	
+	public static void main(String[] args) {
+		
+		PassInfo info = buildPassword("123456");
+		
+		System.out.println(info.getPassword());
+		System.out.println(info.getSalt());
+	}
 
 }
