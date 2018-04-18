@@ -1,4 +1,4 @@
-package com.bool.jutils.plugins;
+package com.bool.jutils.mbg;
 
 
 import org.mybatis.generator.api.IntrospectedTable;
