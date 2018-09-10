@@ -1,35 +1,31 @@
 package com.bool.jutils.mbg;
 
+import java.util.List;
 
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
-import org.mybatis.generator.api.dom.java.*;
+import org.mybatis.generator.api.dom.java.Field;
+import org.mybatis.generator.api.dom.java.FullyQualifiedJavaType;
+import org.mybatis.generator.api.dom.java.JavaVisibility;
+import org.mybatis.generator.api.dom.java.Method;
+import org.mybatis.generator.api.dom.java.Parameter;
+import org.mybatis.generator.api.dom.java.PrimitiveTypeWrapper;
+import org.mybatis.generator.api.dom.java.TopLevelClass;
 import org.mybatis.generator.api.dom.xml.Attribute;
 import org.mybatis.generator.api.dom.xml.TextElement;
 import org.mybatis.generator.api.dom.xml.XmlElement;
 
-import java.util.List;
 
-
-/**
- * Mybatis分页插件
- * @author 18365
- * @date
- *
- */
-public class PaginationPlugin extends PluginAdapter {
-
+public class PaginationPlugin
+        extends PluginAdapter {
     @Override
     public boolean validate(List<String> list) {
         return true;
     }
 
-    /**
-     * 为每个Example类添加limit和offset属性和set、get方法
-     */
+
     @Override
     public boolean modelExampleClassGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
-
         PrimitiveTypeWrapper integerWrapper = FullyQualifiedJavaType.getIntInstance().getPrimitiveTypeWrapper();
 
         Field limit = new Field();
@@ -75,13 +71,9 @@ public class PaginationPlugin extends PluginAdapter {
         return true;
     }
 
-    /**
-     * 为Mapper.xml的selectByExample添加limit,offset
-     */
-    @Override
-    public boolean sqlMapSelectByExampleWithoutBLOBsElementGenerated(XmlElement element,
-                                                                     IntrospectedTable introspectedTable) {
 
+    @Override
+    public boolean sqlMapSelectByExampleWithoutBLOBsElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
         XmlElement ifLimitNotNullElement = new XmlElement("if");
         ifLimitNotNullElement.addAttribute(new Attribute("test", "limit != null"));
         XmlElement ifOffsetNotNullElement = new XmlElement("if");
@@ -96,6 +88,4 @@ public class PaginationPlugin extends PluginAdapter {
         element.addElement(ifLimitNotNullElement);
         return true;
     }
-
- 
-}  
+}
