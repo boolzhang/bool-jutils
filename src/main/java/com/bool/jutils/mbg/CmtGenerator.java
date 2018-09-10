@@ -126,6 +126,11 @@ public class CmtGenerator implements CommentGenerator {
         if ((this.suppressAllComments) || (!this.addRemarkComments)) {
             return;
         }
+
+        //增加注释
+        this.addClassComment(topLevelClass, introspectedTable);
+
+
         //日期格式化，导入SPRING日期格式化包
         if(springDateFormat){
             topLevelClass.addImportedType("org.springframework.format.annotation.DateTimeFormat");
@@ -194,12 +199,8 @@ public class CmtGenerator implements CommentGenerator {
             return;
         }
 
-        innerClass.addJavaDocLine("/**");
-        innerClass.addJavaDocLine(" * @Title " + introspectedTable.getFullyQualifiedTable());
-        innerClass.addJavaDocLine(" * @Description " + introspectedTable.getRemarks());
-        innerClass.addJavaDocLine(" * @Author DAV");
-        innerClass.addJavaDocLine(" * @Date " + this.currentDate());
-        innerClass.addJavaDocLine(" */");
+        //增加注释
+        this.addClassComment(innerClass, introspectedTable);
     }
 
     /**
